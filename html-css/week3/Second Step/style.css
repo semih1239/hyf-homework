@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    margin: 30px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right ul {
+    display: flex;
+    list-style: none;
+}
+
+.right li a {
+    margin-right: 10px;
+    padding: 17px;
+    text-decoration: none;
+    color: black;
+    background-color: lightgrey;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.right li a:hover {
+    transform: translate(-3px, 3px);
+    box-shadow: black 3px -3px;
+    background-color: lightblue;
+    border-radius: 10px;
+    color: black;
+}
+
+main {
+    margin-top: 5%;
+}
+
+main h1 {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+form h2 {
+    margin: 30px 0;
+    font-size: 40px;
+}
+
+form .progress p {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+form progress {
+    width: 100%;
+    height: 50px;
+    border: 1px solid gray;
+}
+
+form progress::-webkit-progress-bar {
+    background-color: white;
+}
+
+form progress::-webkit-progress-value {
+    background-color: lightgrey;
+    border-right: 1px solid grey;
+}
+
+#meet {
+    margin: 20px 0 50px 0;
+    font-size: 18px;
+}
+
+.line {
+    display: flex;
+    margin: 20px 0;
+    margin-right: 10%;
+}
+
+.line .form-group {
+    flex-basis: 60%;
+    width: 80%;
+    text-align: right;
+}
+
+.line .form-group-right{
+    flex-basis: 40%;
+    padding-left: 20px;
+}
+
+.line .form-group-right input{
+    width: 60%;
+}
+
+.line label {
+    margin-right: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.line input {
+    width: 50%;
+    height: 50px;
+    font-size: 20px;
+    border: 1px solid darkgray;
+    padding-left: 16px;
+}
+
+.form-address {
+    margin-top: 50px;
+}
+
+.form-address label {
+    font-size: 20px;
+}
+
+.checkboxes{
+    display: flex;
+    justify-content: left;
+}
+
+.checkbox{
+    height: 150px;
+    width: 240px;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.checkbox input[type="checkbox"]{
+    appearance: none;
+    -webkit-appearance: none;
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    cursor: pointer;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid darkgray;
+}
+
+.checkbox label{
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.checkbox input[type="checkbox"]:after{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f111";
+    font-size: 20px;
+    color: gray;
+    margin: auto;
+    display: none;
+    padding: 3px 4px;
+}
+
+input[type="checkbox"]:hover{
+    background-color: lightgray;
+}
+
+input[type="checkbox"]:checked:after{
+    display: block;
+}
+
+
+
+.button {
+    text-align: right;
+    margin-top: 200px;
+}
+
+.button input {
+    font-size: 22px;
+    font-weight: bold;
+    padding: 30px 80px;
+    cursor: pointer;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+        integrity="sha512-L7MWcK7FNPcwNqnLdZq86lTHYLdQqZaz5YcAgE+5cnGmlw8JT03QB2+oxL100UeB6RlzZLUxCGSS4/++mNZdxw=="
+        crossorigin="anonymous" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="logo"><img src="../img/diamond-removebg-preview.png" width="50px"></div>
+        <div class="right">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <h1>Sign up to yourcustomtailor.com</h1>
+    </main>
+    <form action="../Third Step/index.html">
+        <h2>Step 2/4 - How can we reach you ?</h2>
+        <div class="progress">
+            <p>Progress</p>
+            <progress id="file" value="25" max="100"></progress>
+        </div>
+        <p id="meet">We will probably need to stay in touch somehow. Let us know how we can reach you ?</p>
+        <div class="line">
+            <div class="form-group">
+                <label for="firstName">Email *</label>
+                <input type="text"
+                    pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$"
+                    title="E-mail address is invalid!" required>
+            </div>
+            <div class="form-group-right">
+                <label for="phone">Phone</label>
+                <input type="number" pattern="[0-9]{8}">
+            </div>
+        </div>
+        <div class="line">
+            <div class="form-group">
+                <label for="password">Password *</label>
+                <input type="password" pattern="^(?=.*[a-z])(?=.*[A-Z]).*$" minlength="10"
+                    title="Please write minimum 10 characters, uppercase and lowercase letters" required>
+            </div>
+        </div>
+        <div class="line">
+            <div class="form-group">
+                <label for="rePassword">Re-enter Password *</label>
+                <input type="password" pattern="^(?=.*[a-z])(?=.*[A-Z]).*$" minlength="10"
+                title="Please write minimum 10 characters, uppercase and lowercase letters" required>
+            </div>
+        </div>
+        <div class="form-address">
+            <label for="address">I want to sign up for the newsletter</label>
+        </div>
+        <div class="checkboxes">
+            <div class="checkbox">
+                <label for="checkbox">Weekly News</label>
+                <input type="checkbox" id="checkbox">
+            </div>
+            <div class="checkbox">
+                <label for="checkbox1">Monthly News</label>
+                <input type="checkbox" id="checkbox1">
+            </div>
+            <div class="checkbox">
+                <label for="checkbox2">Don't Send Me News</label>
+                <input type="checkbox" id="checkbox2">
+            </div>
+        </div>
+        <div class="button">
+            <input type="submit" id="button" value="Next Step">
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#button').click(function() {
+              checked = $("input[type=checkbox]:checked").length;
+        
+              if(!checked) {
+                alert("You must check at least one checkbox from newsletter.");
+                return false;
+              }
+        
+            });
+        });
+        
+        </script>
+</body>
+
+</html>

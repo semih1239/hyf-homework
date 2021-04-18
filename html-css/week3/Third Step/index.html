@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+        integrity="sha512-L7MWcK7FNPcwNqnLdZq86lTHYLdQqZaz5YcAgE+5cnGmlw8JT03QB2+oxL100UeB6RlzZLUxCGSS4/++mNZdxw=="
+        crossorigin="anonymous" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="logo"><img src="../img/diamond-removebg-preview.png" width="50px"></div>
+        <div class="right">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <h1>Sign up to yourcustomtailor.com</h1>
+    </main>
+    <form action="../Forth Step/index.html">
+        <h2>Step 3/4 - Time to learn about your prefences ?</h2>
+        <div class="progress">
+            <p>Progress</p>
+            <progress id="file" value="50" max="100"></progress>
+        </div>
+        <p id="meet">What kind of items are you interested in offers on ?</p>
+        <div class="upside">
+            <div class="checkboxes">
+                <div class="checkbox">
+                    <label for="checkbox">Apperal</label>
+                    <input type="checkbox" id="checkbox">
+                </div>
+                <div class="checkbox">
+                    <label for="checkbox1">Jevelry</label>
+                    <input type="checkbox" id="checkbox1">
+                </div>
+            </div>
+            <div class="checkboxes">
+                <div class="checkbox">
+                    <label for="checkbox2">Accessories</label>
+                    <input type="checkbox" id="checkbox2">
+                </div>
+                <div class="checkbox">
+                    <label for="checkbox3">Shoes</label>
+                    <input type="checkbox" id="checkbox3">
+                </div>
+            </div>
+            <div class="checkboxes">
+                <div class="checkbox">
+                    <label for="checkbox4">Handbags</label>
+                    <input type="checkbox" id="checkbox4">
+                </div>
+            </div>
+        </div>
+        <p id="upper-image-text">Choose the images that best resemble your style</p>
+        <div class="downside">
+            <div class="img-check">
+                <div class="img">
+                    <img src="img/1.jpg">
+                    <div class="checkbox">
+                        <label for="checkbox5">Select</label>
+                        <input type="checkbox" id="checkbox5">
+                    </div>
+                </div>
+                <div class="img">
+                    <img src="img/2.jpg">
+                    <div class="checkbox">
+                        <label for="checkbox6">Select</label>
+                        <input type="checkbox" id="checkbox6">
+                    </div>
+                </div>
+                <div class="img">
+                    <img src="img/3.jpg">
+                    <div class="checkbox">
+                        <label for="checkbox7">Select</label>
+                        <input type="checkbox" id="checkbox7">
+                    </div>
+                </div>
+                <div class="img">
+                    <img src="img/4.jpg">
+                    <div class="checkbox">
+                        <label for="checkbox8">Select</label>
+                        <input type="checkbox" id="checkbox8">
+                    </div>
+                </div>
+                <div class="img">
+                    <img src="img/5.jpg">
+                    <div class="checkbox">
+                        <label for="checkbox9">Select</label>
+                        <input type="checkbox" id="checkbox9">
+                    </div>
+                </div>
+                <div class="img">
+                    <img src="img/6.jpg">
+                    <div class="checkbox">
+                        <label for="checkbox10">Select</label>
+                        <input type="checkbox" id="checkbox10">
+                    </div>
+                </div>
+                <div class="img">
+                    <img src="img/7.jpg">
+                    <div class="checkbox">
+                        <label for="checkbox11">Select</label>
+                        <input type="checkbox" id="checkbox11">
+                    </div>
+                </div>
+                <div class="img">
+                    <img src="img/8.jpg">
+                    <div class="checkbox">
+                        <label for="checkbox12">Select</label>
+                        <input type="checkbox" id="checkbox12">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button">
+            <input type="submit" id="button" value="Next Step">
+        </div>
+    </form>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#button').click(function() {
+              checked = $(".upside input[type=checkbox]:checked").length;
+        
+              if(!checked) {
+                alert("You must check at least one checkbox from interest.");
+                return false;
+              }
+        
+            });
+        });
+        
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#button').click(function() {
+                  checked = $(".downside input[type=checkbox]:checked").length;
+            
+                  if(!checked) {
+                    alert("You must check at least one checkbox from images.");
+                    return false;
+                  }
+            
+                });
+            });
+            
+            </script>
+</body>
+
+</html>

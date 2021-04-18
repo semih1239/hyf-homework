@@ -141,7 +141,6 @@ input[type="checkbox"]:checked:after {
 
 .img-check .img {
     position: relative;
-    border: 1px solid black;
     width: 20%;
     height: 370px;
     display: flex;
@@ -168,4 +167,28 @@ input[type="checkbox"]:checked:after {
     font-weight: bold;
     padding: 30px 80px;
     cursor: pointer;
+}
+
+@media screen and (max-width:720px){
+    main h1{
+        font-size: 30px;
+    }
+    form h2{
+        font-size: 20px;
+    }
+    .img{
+        flex-basis: 40%;
+    }
+}
+
+@media screen and (max-width:460px){
+    main h1{
+        font-size: 23px;
+    }
+    form h2{
+        font-size: 18px;
+    }
+    .img{
+        flex-basis: 100%;
+    }
 }

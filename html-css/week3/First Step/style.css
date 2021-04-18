@@ -216,3 +216,39 @@ input[type="checkbox"]:checked:after{
     right: 0;
     bottom: 0;
 }
+
+@media screen and (max-width:900px) {
+    body{
+        margin: 10px;
+    }
+    main p{
+        font-size: 13px;
+    }
+    .line{
+        flex-wrap: wrap;
+    }
+    .line .form-group{
+        flex-basis: 100%;
+        margin-top: 10px;
+        margin-right: 20px;
+    }
+    .line input{
+        width: 100%;
+    }
+    #country{
+        margin-right: 10px;
+    }
+    .form-address{
+        flex-wrap: wrap;
+    }
+    textarea{
+        flex-wrap: wrap;
+        margin-right: 10px;
+    }
+    .button input{
+        bottom: -50px;
+    }
+    .line label{
+        margin-right: 0;
+    }
+}

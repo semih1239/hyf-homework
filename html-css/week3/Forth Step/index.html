@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+        integrity="sha512-L7MWcK7FNPcwNqnLdZq86lTHYLdQqZaz5YcAgE+5cnGmlw8JT03QB2+oxL100UeB6RlzZLUxCGSS4/++mNZdxw=="
+        crossorigin="anonymous" />
+    </head>
+
+<body>
+    <nav>
+        <div class="logo"><img src="../img/diamond-removebg-preview.png" width="50px"></div>
+        <div class="right">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <h1>Sign up to yourcustomtailor.com</h1>
+    </main>
+    <form action="../First Step/index.html">
+        <h2>Step 4/4 - Payment</h2>
+        <div class="progress">
+            <p>Progress</p>
+            <progress id="file" value="90" max="100"></progress>
+        </div>
+        <p id="meet">Please fill your payment data</p>
+        <div class="line">
+            <div class="form-group">
+                <label for="nameoncard">Name on card</label>
+                <input type="text" required>
+            </div>
+        </div>
+        <div class="line">
+            <div class="form-group">
+                <label for="cardtype">Card Type</label>
+                <select id="cardtype" name="cardtype" required>
+                    <option value="" disabled selected value></option>
+                    <option value="MasterCard">Master Card</option>
+                    <option value="Visa">Visa</option>
+                </select>
+            </div>
+        </div>
+        <div class="line">
+            <div class="form-group">
+                <label for="cardnumber">Credit Card Number</label>
+                <input type="tel" id="cardnumber" title="Please write 16 number" pattern=".{16}" required>
+            </div>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" required>
+            </div>
+        </div>
+        <div class="line" id="line">
+            <div class="form-group">
+                <label for="exmonth">Expiry Month</label>
+                <input type="number" id="exmonth" min="1" max="12" required>
+            </div>
+            <div class="form-group">
+                <label for="exyear">Expiry Year</label>
+                <input type="tel" id="exyear" title="Please write 4 digits" pattern=".{4}" required>
+            </div>
+        </div>
+        <div class="line" id="line">
+            <div class="form-group">
+                <label for="ccv">CCV</label>
+                <input type="tel" id="ccv" title="Please write 3 digits" pattern=".{3}" required>
+            </div>
+        </div>
+        <div class="button">
+            <input type="submit" id="button" value="Next Step">
+        </div>
+    </form>
+</body>
+
+</html>

@@ -137,3 +137,45 @@ form progress::-webkit-progress-value {
     padding: 30px 80px;
     cursor: pointer;
 }
+
+@media screen and (max-width:900px) {
+    body{
+        margin: 10px;
+    }
+    main p{
+        font-size: 13px;
+    }
+    .line{
+        flex-wrap: wrap;
+    }
+    .line .form-group{
+        flex-basis: 100%;
+        margin-top: 10px;
+        margin-right: 20px;
+    }
+    .form-group #cardtype{
+        width: 100%;
+    }
+    #line .form-group{
+        flex-basis: 100%;
+        justify-content: flex-end;
+    }
+    .line input{
+        width: 100%;
+    }
+    .form-address{
+        flex-wrap: wrap;
+    }
+    .line label{
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width:500px) {
+    main h1{
+        font-size: 30px;
+    }
+    form h2{
+        font-size: 22px;
+    }
+}

@@ -1,9 +1,11 @@
 // Flight booking fullname function
 
-function getFullname(fullname1,fullname2){
-    return console.log(fullname1 + ' ' + fullname2)
+function getFullname(fullname1, fullname2) {
+    return fullname1 + ' ' + fullname2
 }
-getFullname('Semih','AYYILDIZ')
+
+console.log(getFullname('Semih', 'AYYILDIZ'))
+
 
 
 // Formal fullname
@@ -23,73 +25,80 @@ getFullname(name1,name2,useFormalName)
 
 // Event application
 
-let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
-
-function getEventWeekdays(number){
+function getEventWeekdays(number) {
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     let today = new Date()
     let day = today.getDate()
-    today.setDate(day+number)
-    return console.log(days[today.getDay()])
+    today.setDate(day + number)
+    return days[today.getDay()]
 }
 
-getEventWeekdays(55)
+console.log(getEventWeekdays(18))
 
 
 // Weather wear
 
-function whatAmIWear(temp){
-    if(temp>=25){
-        console.log('Shorts and T-shirt')
+function whatShouldWear(tempretureInCelcius) {
+    if (tempretureInCelcius >= 25) {
+        return 'Shorts and T-shirt'
     }
-    else if(temp>5){
-        console.log('Pants and Sweater')
+    else if (tempretureInCelcius > 5) {
+        return 'Pants and Sweater'
     }
-    else if(temp>-20){
-        console.log('Coats and Boots')
+    else if (tempretureInCelcius > -20) {
+        return 'Coats and Boots'
     }
-    else if(temp>-40){
-        console.log('Wear Everything Double')
+    else if (tempretureInCelcius > -40) {
+        return 'Wear Everything Double'
     }
-    else{
-        console.log("Dont't Go Outside")
+    else {
+        return "Dont't Go Outside"
     }
 }
-whatAmIWear(-20)
+console.log(whatShouldWear(-20))
 
 
 // Student manager
 
 let class18Students = []
 function addStudentToClass(studentName) {
-    if (studentName == 'Margrethe') {
-        class18Students.push(studentName)
+    if (typeof studentName !== "string") {
+        console.log('You cant add. Please write a name!!!')
+        return
     }
-    else if (class18Students.indexOf(studentName) != (-1)) {
+    studentName = studentName.trim()
+    if (studentName == 'Queen Margrethe II') {
+        class18Students.push(studentName)
+        return
+    }
+    else if (class18Students.indexOf(studentName) != -1) {
         console.log(`Student ${studentName} is already in the class`)
+        return
     }
-    else if (class18Students.length>=6){
+    else if (class18Students.length >= 6) {
         console.log('Cannot add more students to class 18')
+        return
     }
-    else if(studentName==''){
-        console.log('You cant add "nothing"')
+    else if (studentName == '') {
+        console.log('You cant add "empty". Please write a name!!!')
+        return
     }
-    else{
-        class18Students.push(studentName)
-    }
+    class18Students.push(studentName)
 }
-
+addStudentToClass(true)
 addStudentToClass('Semih')
+addStudentToClass("     ")
 addStudentToClass('Semih')
-addStudentToClass('')
+addStudentToClass('Ugur')
 addStudentToClass('Yusuf')
 addStudentToClass('Celal')
-addStudentToClass('Ugur')
 addStudentToClass('John')
 addStudentToClass('Dean')
 addStudentToClass('Rick')
-addStudentToClass('Margrethe')
+addStudentToClass('Queen Margrethe II')
 
 console.log(class18Students)
+
 
 
 // Candy helper (optional)
@@ -104,25 +113,25 @@ function addCandy(candyType, weight) {
     console.log(boughtCandyPrices)
 }
 
-addCandy('sweet',30)
-addCandy('chocolate',20)
-addCandy('toffee',20)
-addCandy('chewing-gum',20)
+addCandy('sweet', 30)
+addCandy('chocolate', 20)
+addCandy('toffee', 20)
+addCandy('chewing-gum', 20)
 
 
 
 
-let amountToSpend = Math.floor(Math.random()*100)
+let amountToSpend = Math.floor(Math.random() * 100)
 
-function canBuyMoreCandy(){
+function canBuyMoreCandy() {
     let total = 0
-    for(i=0;i<boughtCandyPrices.length;i++){
+    for (i = 0; i < boughtCandyPrices.length; i++) {
         total = total + boughtCandyPrices[i]
     }
-    if(total < amountToSpend){
-        console.log(`You can buy ${amountToSpend-total} money`)
+    if (total < amountToSpend) {
+        console.log(`You can buy ${amountToSpend - total} money`)
     }
-    else{
+    else {
         console.log('You cant buy more candy.')
     }
 }

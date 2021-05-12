@@ -16,11 +16,11 @@ useFormalName = confirm('Do you want formal name?')
 
 function getFullname(fullname1,fullname2,useFormalName){
     if (useFormalName){
-    return console.log('Lord ' + fullname1 + ' ' + fullname2)
+    return 'Lord ' + fullname1 + ' ' + fullname2
     }
-    else{return console.log(fullname1 + ' ' + fullname2)}
+    else{return fullname1 + ' ' + fullname2}
 }
-getFullname(name1,name2,useFormalName)
+console.log(getFullname(name1,name2,useFormalName))
 
 
 // Event application

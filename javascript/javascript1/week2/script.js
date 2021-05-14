@@ -28,12 +28,11 @@ console.log(getFullname(name1,name2,useFormalName))
 function getEventWeekdays(number) {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     let today = new Date()
-    let day = today.getDate()
-    today.setDate(day + number)
-    return days[today.getDay()]
+    let day = (today.getDay() + number) % 7
+    return days[day]
 }
 
-console.log(getEventWeekdays(18))
+console.log(getEventWeekdays(14))
 
 
 // Weather wear

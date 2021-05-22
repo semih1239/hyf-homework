@@ -14,8 +14,7 @@ console.log(notes)
 // Get a note with id number
 
 function getNote(id) {
-    let i;
-    for (i = 0; i < notes.length; i++) {
+    for (let i = 0; i < notes.length; i++) {
         if (notes[i].id == id) {
             return notes[i].content
         }
@@ -25,9 +24,9 @@ console.log(getNote(1))
 
 // Log out notes
 
-function logOutNotesFormatted() {
-    for(i=0;i<notes.length;i++){
+function logOutNotesFormatted(notes) {
+    for(let i=0 ; i < notes.length ; i++){
         console.log(`The note with id: ${notes[i].id}, has the following note text: ${notes[i].content}`)
     }
 }
-logOutNotesFormatted()
+logOutNotesFormatted(notes)

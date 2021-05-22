@@ -24,12 +24,12 @@ const seriesDurations = [
 
 
 function logOutSeriesText(list){
-    let lifeSpan = 80 * 12 * 30 * 24 * 60  // minutes
+    const lifeSpan = 80 * 12 * 30 * 24 * 60  // minutes
     let book
     let total = 0
-    for(i=0;i<list.length;i++){
-        day = list[i].days * 24 * 60
-        hour = list[i].hours * 60
+    for(let i=0;i<list.length;i++){
+        const day = list[i].days * 24 * 60
+        const hour = list[i].hours * 60
         book = day + hour + list[i].minutes
         percent = (book / lifeSpan).toFixed(5)
         total = total + book

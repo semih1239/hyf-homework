@@ -12,6 +12,6 @@ const names = [
 ];
 const nameToRemove = "Ahmad";
 
-let index = names.indexOf(nameToRemove)
+const index = names.indexOf(nameToRemove)
 names.splice(index,1)
 console.log(names)

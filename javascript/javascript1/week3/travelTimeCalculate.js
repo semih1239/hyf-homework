@@ -6,10 +6,10 @@ const travelInformation = {
 };
 
 function travelTimeCalculate(travelInformation) {
-    let carSpeed = travelInformation.speed
-    let distance = travelInformation.destinationDistance
-    var hour = Math.floor(distance / carSpeed)
-    var minute = Math.ceil (60 * ((distance / carSpeed) % 1))
+    const carSpeed = travelInformation.speed
+    const distance = travelInformation.destinationDistance
+    const hour = Math.floor(distance / carSpeed)
+    const minute = Math.ceil (60 * ((distance / carSpeed) % 1))
     return `${hour} hours and ${minute} minutes`
 }
 

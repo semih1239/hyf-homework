@@ -1,53 +1,51 @@
-let info = [{       // User name array
-    name: ""
-}]
+let userName = ''
 
 let todolist = []       // Todo list array
 
 function getReply(command) {
-    let arr = []        // Users inputs arrays
-    command1 = command.split(' ')
-    arr.push(command1)
+    const commandWords = command.toLowerCase().split(' ')       // Users inputs arrays
 
-    switch (arr[0][0] + arr[0][1] + arr[0][2] + arr[0][3]) {
+    switch (commandWords[0] + commandWords[1] + commandWords[2] + commandWords[3]) {
 
         // Introduce inputs
 
-        case 'Hellomynameis':
-            if (info[0].name == arr[0][4]) {
-                console.log(`Okey okey i got it. Your name is ${info[0].name}. You dont need to repeat that.`)
+        case 'hellomynameis':
+            if (userName == commandWords[4]) {
+                console.log(`Okey okey i got it. Your name is ${userName}. You dont need to repeat that.`)
             }
             else {
-                info[0].name = arr[0][4]
-                console.log(`Nice to meet you ${info[0].name}`)
+                userName = commandWords[4]
+                console.log(`Nice to meet you ${userName}`)
             }
             break
 
         // User name
 
-        case 'Whatismyname':
-            if (info[0].name == "") {
+        case 'whatismyname':
+            if (userName == "") {
                 console.log('How can i know that. You dont introduce yourself!!!')
             }
             else {
-                console.log(`Your name is ${info[0].name}`)
+                console.log(`Your name is ${userName}`)
             }
             break
 
         // Set Timer
 
-        case 'Setatimerfor':
-            if (arr[0][5] == 'minutes') {
-                time = arr[0][4] * 60000
+        case 'setatimerfor':
+            const timeNumber = commandWords[4]
+            const timeWord = commandWords[5]
+            if (timeWord == 'minutes') {
+                time = timeNumber * 60000
             }
-            else if (arr[0][5] == 'seconds') {
-                time = arr[0][4] * 1000
+            else if (timeWord == 'seconds') {
+                time = timeNumber * 1000
             }
-            else if (arr[0][5] == 'hours') {
-                time = arr[0][4] * 3600000
+            else if (timeWord == 'hours') {
+                time = timeNumber * 3600000
             }
             else { console.log('You write to wrong timer!!!') }
-             console.log(`Timer set for ${arr[0][4]} ${arr[0][5]}`)
+             console.log(`Timer set for ${timeNumber} ${timeWord}`)
             setTimeout(function () {
                 console.log('Timer Done!!!');
             }, time);
@@ -55,37 +53,38 @@ function getReply(command) {
 
         // Random number
 
-        case 'Sayanumberbetween' :
-            let min = Number(arr[0][4])
-            let max = Number(arr[0][6])
-            let random = min + Math.random() * (max-min)
+        case 'sayanumberbetween' :
+            const lowestNumber = Number(commandWords[4])
+            const highestNumber = Number(commandWords[6])
+            const random = lowestNumber + Math.random() * (highestNumber-lowestNumber)
             console.log(Math.floor(random))
     }
 
     // Another switch function
 
-    lngth = arr[0].length
+    const lngth = commandWords.length
 
-    switch (arr[0][0] + arr[0][lngth - 3] + arr[0][lngth - 2] + arr[0][lngth - 1]) {
+    switch (commandWords[0] + commandWords[lngth - 3] + commandWords[lngth - 2] + commandWords[lngth - 1]) {
 
         // Add to todo list
 
-        case 'Addtomytodo':
-            todolist.push(arr[0].slice(1, lngth - 3))
-            console.log(`${arr[0].slice(1, lngth - 3).join(' ')} added to your todo`)
+        case 'addtomytodo':
+            const newTodoItem = commandWords.slice(1, lngth - 3)
+            todolist.push(newTodoItem)
+            console.log(`${newTodoItem} added to your todo`)
             break
 
         // Remove from todo list
 
-        case 'Removefrommytodo':
-            let number = todolist[0].indexOf(arr[0].slice(1, lngth - 3))
+        case 'removefrommytodo':
+            const number = todolist[0].indexOf(commandWords.slice(1, lngth - 3))
             todolist[0].splice(number, 1)
-            console.log(`Removed ${arr[0].slice(1, lngth - 3)} from your todo`)
+            console.log(`Removed ${commandWords.slice(1, lngth - 3)} from your todo`)
             break
 
         // See todo list elements
 
-        case 'Whatonmytodo?':
+        case 'whatonmytodo?':
             for (i = 0; i < todolist.length; i++) {
                 if (todolist[i] != "") {
                     console.log(todolist[i].join(' '))
@@ -95,26 +94,29 @@ function getReply(command) {
 
         // Todays Date 
 
-        case 'Whatisittoday?':
+        case 'whatisittoday?':
             console.log(new Date().toDateString())
             break
     }
 
     // Simple Math operations
-
-    if (arr[0][3] == "*") {
-        console.log(arr[0][2] * arr[0][4])
+    const mathOperator = commandWords[3]
+    const firstOperator = commandWords[2]
+    const secondOperator = commandWords[4]
+    if (mathOperator == "*") {
+        console.log(firstOperator * secondOperator)
     }
-    else if (arr[0][3] == "/") {
-        console.log(arr[0][2] / arr[0][4])
+    else if (mathOperator == "/") {
+        console.log(firstOperator / secondOperator)
     }
-    else if (arr[0][3] == "+") {
-        console.log(arr[0][2] + arr[0][4])
+    else if (mathOperator == "+") {
+        console.log(firstOperator + secondOperator)
     }
-    else if (arr[0][3] == "-") {
-        console.log(arr[0][2] - arr[0][4])
+    else if (mathOperator == "-") {
+        console.log(firstOperator - secondOperator)
     }
 }
+
 
 getReply("Hello my name is Semih")
 getReply("What is my name")

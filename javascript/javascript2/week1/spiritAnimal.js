@@ -11,7 +11,7 @@ const spiritAnimals = ['The Laughing Butterfly', 'The Brave Badger', 'The Sharp 
 
 
 withText.addEventListener('click', function () {
-        username.addEventListener('keypress', function () {
+        username.addEventListener('keyup', function () {
             const name = username.value
             const random = Math.floor(Math.random() * 10)
             h3.innerHTML = `${name} - ${spiritAnimals[random]}`

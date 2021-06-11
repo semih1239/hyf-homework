@@ -1,7 +1,7 @@
 const danishString = "Jeg har en blå bil";
 const danishString2 = "Blå grød med røde bær";
 
-function danishLetters(word){
+function countDanishLetters(word){
     let result = {total:0}
     const lowerWord = word.toLowerCase()
     for(let i =0 ; i<lowerWord.length; i++){
@@ -30,5 +30,5 @@ function danishLetters(word){
     return result
 }
 
-console.log(danishLetters(danishString))
-console.log(danishLetters(danishString2))
+console.log(countDanishLetters(danishString))
+console.log(countDanishLetters(danishString2))

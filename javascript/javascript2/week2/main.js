@@ -2,6 +2,8 @@ console.log("Script loaded");
 
 const products = getAvailableProducts();
 
+console.log(products)
+
 const ul = document.querySelector('ul')
 
 const searchName = document.getElementById('itemSearch')
@@ -90,5 +92,26 @@ searchMaxPrice.addEventListener('keyup', function () {
 
 renderProducts(products)
 
+// For Button
 
+// const sortButton = document.getElementById('cheapToExpensive')
 
+// function cheapToExpensive() {
+//     let arr = [products[0]]
+
+//     products.forEach(product => {
+//         for (i = 0; i < products.length; i++) {
+//             if (product.price > arr[i].price) {
+//                 arr.splice(i,0,product)
+//                 break
+//             }
+//             else if(product.price < arr[i].price){
+//                 arr.splice(i,0,product)
+//                 break
+//             }
+//         }
+//     })
+//     return arr
+// }
+
+// console.log(cheapToExpensive())

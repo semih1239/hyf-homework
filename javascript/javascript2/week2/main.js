@@ -2,8 +2,6 @@ console.log("Script loaded");
 
 const products = getAvailableProducts();
 
-console.log(products)
-
 const ul = document.querySelector('ul')
 
 const searchName = document.getElementById('itemSearch')

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fastestPresser.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <div class="upperside">
+            <section>
+                <h1>Fastest Presser</h1>
+            </section>
+            <section>
+                <input type="number" placeholder="Set Seconds" id="seconds">
+            </section>
+            <section>
+                <button id="startButton">Start Game!</button>
+                <button id="restartButton">Restart Game</button>
+            </section>
+        </div>
+        <div class="downside">
+            <div class="press" id="pressS">
+                <p>Press S</p>
+                <p id="countS"></p>
+            </div>
+            <div class="press" id="pressL">
+                <div id="my-canvas"></div>
+                <p>Press L</p>
+                <p id="countL"></p>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="fastestPresser.js"></script>
+</html>

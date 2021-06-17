@@ -1,0 +1,56 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+section{
+    padding-top: 40px;
+}
+
+h1{
+    font-size: 60px;
+    font-family: 'Pacifico', cursive;
+    color: rgb(51, 145, 145);
+}
+
+input{
+    width: 15%;
+    padding: 10px 20px;
+    border-radius: 3px;
+}
+
+button{
+    padding: 15px;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(51, 145, 145);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+button:hover{
+    transform: translate(-3px,-3px);
+    box-shadow: 3px 3px black;
+}
+
+.upperside{
+    padding-top: 5%;
+    text-align: center;
+    height: 50vh;
+}
+
+.downside{
+    display: flex;
+    height: 50vh;
+}
+
+.press{
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    font-size: 30px;
+    padding: 12% 0;
+    border: 1px solid black;
+}

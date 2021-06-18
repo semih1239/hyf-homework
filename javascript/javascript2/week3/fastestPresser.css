@@ -36,7 +36,6 @@ button:hover{
 }
 
 .upperside{
-    padding-top: 5%;
     text-align: center;
     height: 50vh;
 }
@@ -53,4 +52,21 @@ button:hover{
     font-size: 30px;
     padding: 12% 0;
     border: 1px solid black;
+}
+
+.canvas{
+    height: 99%;
+    width: 99%;
+}
+
+canvas{
+    position: relative;
+    top: -23vh;
+    width: 100%;
+}
+
+.score{
+    position: absolute;
+    bottom: 25%;
+    padding-left: 15%;
 }

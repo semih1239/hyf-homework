@@ -5,24 +5,25 @@
 }
 
 section{
-    padding-top: 40px;
+    padding-top: 2vh;
 }
 
 h1{
-    font-size: 60px;
+    font-size: 8vh;
     font-family: 'Pacifico', cursive;
     color: rgb(51, 145, 145);
 }
 
 input{
-    width: 15%;
+    font-size: 1vw;
+    width: 30vh;
     padding: 10px 20px;
     border-radius: 3px;
 }
 
 button{
     padding: 15px;
-    font-size: 20px;
+    font-size: 1.6vh;
     color: white;
     background-color: rgb(51, 145, 145);
     border-radius: 5px;
@@ -49,20 +50,15 @@ button:hover{
     width: 50%;
     height: 100%;
     text-align: center;
-    font-size: 30px;
+    font-size: 1.7vw;
     padding: 12% 0;
     border: 1px solid black;
-}
-
-.canvas{
-    height: 99%;
-    width: 99%;
 }
 
 canvas{
     position: relative;
     top: -23vh;
-    width: 100%;
+    width: 99%;
 }
 
 .score{

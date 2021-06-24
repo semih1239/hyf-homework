@@ -116,7 +116,7 @@ function dblclick() {
     console.log('Double clicked')
 }
 
-html.addEventListener('dblclick', dblclick)
+window.addEventListener('dblclick', dblclick)
 
 // 9. Create a function called jokeCreator that has three parameters: shouldTellFunnyJoke - boolean, logFunnyJoke 
 //    - function and logBadJoke - function. If you set shouldTellFunnyJoke to true it should call the logFunnyJoke function
@@ -127,19 +127,19 @@ const badJokes = ["I saw this advert in a window that said: “Television for sa
 
 const random = Math.floor(Math.random() * 10)
 
-function logFunnyJoke(){
+function logFunnyJoke() {
     console.log(funnyJokes[random])
 }
 
-function logBadJoke(){
+function logBadJoke() {
     console.log(badJokes[random])
 }
 
 function jokeCreator(shouldTellFunnyJoke) {
-    if(shouldTellFunnyJoke){
+    if (shouldTellFunnyJoke) {
         logFunnyJoke()
     }
-    else{
+    else {
         logBadJoke()
     }
 }
@@ -170,13 +170,13 @@ jokesButton.addEventListener('click', jokeCreator2)
 
 // Create an array with 3 items. All items should be functions. Iterate through the array and call all the functions.
 
-const functionArray = [function(){console.log('Function One')},function(){console.log('Function Two')},function (){console.log('Function Three')}]
+const functionArray = [function () { console.log('Function One') }, function () { console.log('Function Two') }, function () { console.log('Function Three') }]
 
 functionArray.forEach(item => item())
 
 // Create a function as a const and try creating a function normally. Call both functions.
 
-function logOutConst(wordToWrite){console.log(`${wordToWrite} Functions !`)}
+function logOutConst(wordToWrite) { console.log(`${wordToWrite} Functions !`) }
 
 const logOutConstFunction = () => logOutConst('GoodBye')
 
@@ -185,7 +185,7 @@ logOutConstFunction()
 
 // Create an object that has a key whose value is a function. Try calling this function.
 const functionObject = {
-    key:() => {console.log('Hello Objects !')}
+    key: () => { console.log('Hello Objects !') }
 }
 
 functionObject.key()

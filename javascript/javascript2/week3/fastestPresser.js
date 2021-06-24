@@ -1,64 +1,64 @@
-let keyS = 0
-let keyL = 0
+let countS = 0
+let countL = 0
 
-const countS = document.getElementById('countS')
-const countL = document.getElementById('countL')
+const countSParagraph = document.getElementById('countS')
+const countLParagraph = document.getElementById('countL')
 
 const startButton = document.getElementById('startButton')
 const restartButton = document.getElementById('restartButton')
 
 const time = document.getElementById('seconds')
 
-let confettiSettings;
+
 let confetti;
 
-
-
 function allSolition() {
-    keyS = 0
-    keyL = 0
-    countS.textContent = 0
-    countL.textContent = 0
+
+    let confettiSettings;
+    countS = 0
+    countL = 0
+    countSParagraph.textContent = 0
+    countLParagraph.textContent = 0
 
     function Count(event) {
         if (event.key === 's') {
-            keyS++
-            countS.textContent = keyS
+            countS++
+            countSParagraph.textContent = countS
         }
         if (event.key === 'l') {
-            keyL++
-            countL.textContent = keyL
+            countL++
+            countLParagraph.textContent = countL
         }
     }
     window.addEventListener('keydown', Count)
-    function removeFunction() {
-        if (keyS > keyL) {
-            countS.textContent = 'Winner winner chicken dinner !!!'
+    function decideWinner() {
+        if (countS > countL) {
+            countSParagraph.textContent = 'Winner winner chicken dinner !!!'
 
             confettiSettings = { target: "canvasS", size: 2 };
             confetti = new ConfettiGenerator(confettiSettings);
             confetti.render();
         }
-        else if (keyL > keyS) {
-            countL.textContent = 'Winner winner chicken dinner !!!'
+        else if (countL > countS) {
+            countLParagraph.textContent = 'Winner winner chicken dinner !!!'
 
             confettiSettings = { target: "canvasL", size: 2 };
             confetti = new ConfettiGenerator(confettiSettings);
             confetti.render();
         }
         else {
-            countS.textContent = 'Winner winner half chicken dinner !!!'
-            countL.textContent = 'Winner winner half chicken dinner !!!'
+            countSParagraph.textContent = 'Winner winner half chicken dinner !!!'
+            countLParagraph.textContent = 'Winner winner half chicken dinner !!!'
         }
         window.removeEventListener('keydown', Count)
     }
     const timeWithSeconds = time.value * 1000
 
-    setTimeout(removeFunction, timeWithSeconds)
+    setTimeout(decideWinner, timeWithSeconds)
     startButton.remove()
 }
 
-function clear() {
+function clearConfetti() {
     confetti.clear()
 }
 
@@ -66,6 +66,6 @@ function clear() {
 startButton.addEventListener('click', allSolition)
 restartButton.addEventListener('click', () => {
     allSolition()
-    clear()
+    clearConfetti()
 })
 

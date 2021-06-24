@@ -44,8 +44,7 @@ function saturnLogger() {
 }
 
 function planetLogFunction(functionForRun) {
-    const result = functionForRun()
-    return result
+    functionForRun()
 }
 
 planetLogFunction(earthLogger)

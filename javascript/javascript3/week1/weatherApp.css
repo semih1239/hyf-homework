@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background-image: url(img/sunny-day-1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 5%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 350%;
+    color: white;
+}
+
+input {
+    width: 20vw;
+    height: 3.5vh;
+    text-align: center;
+    margin: 1% 38%;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: lightblue;
+}
+
+input:focus{
+    outline: none;
+    box-shadow: 0px 0px 2px #0066ff;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin: 1% 20%;
+}
+
+button {
+    padding: 10px;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    background-color: lightblue;
+    cursor: pointer;
+    transition: all 0.75s;
+}
+
+button:hover{
+    transform: translate(-5px, -5px);
+    box-shadow: 5px 5px black;
+}
+
+.informations {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 1%;
+    font-size: 1.2vw;
+}
+
+h2 {
+    font-size: 2.5em;
+}
+
+.temprature {
+    display: flex;
+    justify-content: space-around;
+    width: 40vw;
+    
+}
+.temp{
+    display: flex;
+    align-items: center;
+    width: 20vw;
+}
+
+#tempratureText {
+    font-size: 2.5em;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding: 2% 0;
+}
+
+@media screen and (max-width:892px) {
+    .informations{
+        font-size: 1.4vw;
+    }
+    .buttons{
+        margin: 1% 0;
+    }
+}

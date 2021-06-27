@@ -38,7 +38,7 @@ if (localStorage.getItem('city') != undefined) {
     function displayTheDatawithCityWithAutomatic() {
         const cityName = localStorage.getItem('city')
 
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=755f8fac4695a2c84fd8f2e3f6e3e671`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=1e55d7a6d0d20e41c51f61a54d2abb7d`)
             .then((res) => res.json())
             .then((data) => {
                 if (data.cod == 200) {
@@ -69,7 +69,7 @@ locationButton.addEventListener('click', getLatitudeLongitude)
 function displayTheDatawithCity() {
     const cityName = input.value.toLowerCase()
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=755f8fac4695a2c84fd8f2e3f6e3e671`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=1e55d7a6d0d20e41c51f61a54d2abb7d`)
         .then((res) => res.json())
         .then((data) => {
             if (data.cod == 200) {
@@ -113,7 +113,7 @@ function getLatitudeLongitude() {
     function confirmed(location) {
         const latitude = location.coords.latitude
         const longitude = location.coords.longitude
-        fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=755f8fac4695a2c84fd8f2e3f6e3e671`)
+        fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=1e55d7a6d0d20e41c51f61a54d2abb7d`)
             .then(res => res.json())
             .then((data) => {
                 if (data.cod != 400) {

@@ -1,0 +1,68 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+section{
+    padding-top: 2vh;
+}
+
+h1{
+    font-size: 8vh;
+    font-family: 'Pacifico', cursive;
+    color: rgb(51, 145, 145);
+}
+
+input{
+    font-size: 1vw;
+    width: 30vh;
+    padding: 10px 20px;
+    border-radius: 3px;
+}
+
+button{
+    padding: 15px;
+    font-size: 1.6vh;
+    color: white;
+    background-color: rgb(51, 145, 145);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+button:hover{
+    transform: translate(-3px,-3px);
+    box-shadow: 3px 3px black;
+}
+
+.upperside{
+    text-align: center;
+    height: 50vh;
+}
+
+.downside{
+    display: flex;
+    height: 50vh;
+}
+
+.press{
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    font-size: 1.7vw;
+    padding: 12% 0;
+    border: 1px solid black;
+}
+
+canvas{
+    position: relative;
+    top: -23vh;
+    width: 99%;
+}
+
+.score{
+    position: absolute;
+    bottom: 25%;
+    padding-left: 15%;
+}

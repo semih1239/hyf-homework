@@ -6,20 +6,6 @@ const locationButton = document.getElementById('locationButton')
 const saveLocationButton = document.getElementById('saveButton')
 const deleteLocationButton = document.getElementById('deleteLocationButton')
 
-// All class or id's from html
-
-const city = document.querySelector('#cityText')
-const temprature = document.getElementById('tempratureText')
-const feelsLike = document.getElementById('feelsLike')
-const minMaxTemp = document.getElementById('tempMinMax')
-const pressure = document.getElementById('pressure')
-const img = document.querySelector('img')
-const wind = document.getElementById('windSpeed')
-const cloud = document.getElementById('clouds')
-const sunTimes = document.getElementById('sunRiseSet')
-const mapDiv = document.getElementById('mapLocation')
-const mapLocation = document.querySelector('iframe')
-
 // Save Location and Delete Location Events
 
 saveLocationButton.addEventListener('click', () => {
@@ -32,24 +18,30 @@ deleteLocationButton.addEventListener('click', () => {
     location.reload()
 })
 
+// Fetch function
+
+function getFetchFunction(cityName) {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=1e55d7a6d0d20e41c51f61a54d2abb7d`)
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.cod == 200) {
+                displayCityWeatherInfo(data)
+            }
+            else {
+                errorText()
+            }
+        })
+}
+
 // when you save your location, page is automatically opening with your location
 
-if (localStorage.getItem('city') != undefined) {
-    function displayTheDatawithCityWithAutomatic() {
+if (localStorage.getItem('city')) {
+    function displayTheDataWithCityWithAutomatic() {
         const cityName = localStorage.getItem('city')
+        getFetchFunction(cityName)
 
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=1e55d7a6d0d20e41c51f61a54d2abb7d`)
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.cod == 200) {
-                    informationwithCity(data)
-                }
-                else {
-                    errorText()
-                }
-            })
     }
-    displayTheDatawithCityWithAutomatic()
+    displayTheDataWithCityWithAutomatic()
 }
 
 
@@ -68,22 +60,26 @@ locationButton.addEventListener('click', getLatitudeLongitude)
 
 function displayTheDatawithCity() {
     const cityName = input.value.toLowerCase()
-
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=1e55d7a6d0d20e41c51f61a54d2abb7d`)
-        .then((res) => res.json())
-        .then((data) => {
-            if (data.cod == 200) {
-                informationwithCity(data)
-            }
-            else {
-                errorText()
-            }
-        })
+    getFetchFunction(cityName)
 }
+
+// All class or id's from html I used that variables informationWithCity and informationwithLocation functions
+
+const city = document.querySelector('#cityText')
+const temprature = document.getElementById('tempratureText')
+const feelsLike = document.getElementById('feelsLike')
+const minMaxTemp = document.getElementById('tempMinMax')
+const pressure = document.getElementById('pressure')
+const img = document.querySelector('img')
+const wind = document.getElementById('windSpeed')
+const cloud = document.getElementById('clouds')
+const sunTimes = document.getElementById('sunRiseSet')
+const mapDiv = document.getElementById('mapLocation')
+const mapLocation = document.querySelector('iframe')
 
 // Html informations part with city name event
 
-function informationwithCity(data) {
+function displayCityWeatherInfo(data) {
     city.innerHTML = `City : ${data.name}`
 
     temprature.innerHTML = `${Math.floor(data.main.temp - 273.15)} °C`
@@ -105,38 +101,6 @@ function informationwithCity(data) {
     mapLocation.style.visibility = 'visible'
     const srcLoc = `https://maps.google.com/maps?q=${data.coord.lat},${data.coord.lon}&z=15&output=embed`
     mapLocation.src = srcLoc
-}
-
-// Get results with automatically latitude and longitude
-
-function getLatitudeLongitude() {
-    function confirmed(location) {
-        const latitude = location.coords.latitude
-        const longitude = location.coords.longitude
-        fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=1e55d7a6d0d20e41c51f61a54d2abb7d`)
-            .then(res => res.json())
-            .then((data) => {
-                if (data.cod != 400) {
-                    informationwithLocation(data)
-                }
-                else {
-                    error()
-                    console.log(data)
-                }
-            })
-    }
-
-    function error() {
-        city.textContent = 'Unable to retrieve your location'
-    }
-
-    if (!navigator.geolocation) {
-        city.textContent = 'Geolocation is not supported by your browser';
-    }
-    else {
-        city.textContent = 'Locating…';
-        navigator.geolocation.getCurrentPosition(confirmed, error);
-    }
 }
 
 // Html information part with Latitude and Longitude automatically
@@ -161,6 +125,44 @@ function informationwithLocation(data) {
     mapLocation.style.visibility = 'visible'
     const srcLoc = `https://maps.google.com/maps?q=${data.lat},${data.lon}&z=15&output=embed`
     mapLocation.src = srcLoc
+}
+
+// Get Latitude Longitude Fetch function
+
+function getLatitudeLongitudeFetch(latitude, longitude) {
+    fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=1e55d7a6d0d20e41c51f61a54d2abb7d`)
+        .then(res => res.json())
+        .then((data) => {
+            if (data.cod != 400) {
+                informationwithLocation(data)
+            }
+            else {
+                error()
+                console.log(data)
+            }
+        })
+}
+
+// Get results with automatically latitude and longitude
+
+function getLatitudeLongitude() {
+    function confirmed(location) {
+        const latitude = location.coords.latitude
+        const longitude = location.coords.longitude
+        getLatitudeLongitudeFetch(latitude, longitude)
+    }
+
+    function error() {
+        city.textContent = 'Unable to retrieve your location'
+    }
+
+    if (!navigator.geolocation) {
+        city.textContent = 'Geolocation is not supported by your browser';
+    }
+    else {
+        city.textContent = 'Locating…';
+        navigator.geolocation.getCurrentPosition(confirmed, error);
+    }
 }
 
 // calculate sunrise and sunset times function

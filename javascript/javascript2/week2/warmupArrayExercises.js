@@ -10,28 +10,28 @@ const movies = [{ "title": "'71", "year": 2014, "rating": 7.2, "votes": 41702, "
 
 // 1. Create an array of movies containing the movies with a short title (you define what short means)
 
-const getShortTitle = movies.filter(item => item.title.length < 3)
+const getShortTitle = movies.filter(movie => movie.title.length < 3)
 console.log(getShortTitle)
 
 // 2. Create an array of movie titles with long movie titles
 
-const getLongestTitle = movies.filter(item => item.title.length > 50)
+const getLongestTitle = movies.filter(movie => movie.title.length > 50)
 console.log(getLongestTitle)
 
 // 3. Count the number of movies made between 1980-1989 (including both the years)
 
-const getBetweenYears = movies.filter(item => item.year >= 1980 && item.year <= 1989)
-console.log(getBetweenYears)
+const getBetweenYears = movies.filter(movie => movie.year >= 1980 && movie.year <= 1989)
+console.log(getBetweenYears.length)
 
 // 4. Create a new array that has an extra key called tag. The tag is based on the rating: Good (>= 7), Average (>= 4 and < 7), Bad (< 4)
 
-const newMoviesWithTagGood = movies.filter(item => item.rating >= 7)
-const newMoviesWithTagAverage = movies.filter(item => item.rating >=4 && item.rating <7)
-const newMoviesWithTagBad = movies.filter(item => item.rating < 4)
+const newMoviesWithTagGood = movies.filter(movie => movie.rating >= 7)
+const newMoviesWithTagAverage = movies.filter(movie => movie.rating >=4 && movie.rating <7)
+const newMoviesWithTagBad = movies.filter(movie => movie.rating < 4)
 
-newMoviesWithTagGood.map(item => item.tag = 'Good')
-newMoviesWithTagAverage.map(item => item.tag = 'Average')
-newMoviesWithTagBad.map(item => item.tag = 'Bad')
+newMoviesWithTagGood.map(movie => movie.tag = 'Good')
+newMoviesWithTagAverage.map(movie => movie.tag = 'Average')
+newMoviesWithTagBad.map(movie => movie.tag = 'Bad')
 
 const allMovies = newMoviesWithTagGood.concat(newMoviesWithTagAverage.concat(newMoviesWithTagBad))
 
@@ -48,24 +48,24 @@ console.log(`Good Movies: ${goodMovies}  ,  Average Movies : ${averageMovies}  ,
 
 // 5. Using chaining, first filter the movies array to only contain the movies rated higher than 6. Now map the movies array to only the rating of the movies.
 
-const filteredHigherRating = movies.filter(item => item.rating > 6)
+const filteredHigherRating = movies.filter(movie => movie.rating > 6)
 
-const getRatings = filteredHigherRating.map(item => item.rating)
+const getRatings = filteredHigherRating.map(movie => movie.rating)
 
 console.log(getRatings)
 
-// 6. Using chaining, first filter the movies array to only contain the movies rated higher than 6. Now map the movies array to only the rating of the movies.
+// 6. Count the total number of movies containing any of following keywords: Surfer, Alien or Benjamin. So if there were 3 movies that contained Surfer, 1 with Alien and 2 with Benjamin, you would return 6. Can you make sure the search is case insensitive?
 
 let total = 0
 const filteredMoviesNames = movies.map(movies => movies.title.toLowerCase())
-const count = filteredMoviesNames.filter(item => {
-    if (item.includes('surfer')) {
+const count = filteredMoviesNames.filter(movie => {
+    if (movie.includes('surfer')) {
         total += 1
     }
-    else if (item.includes('alien')) {
+    else if (movie.includes('alien')) {
         total += 1
     }
-    else if (item.includes('benjamin')) {
+    else if (movie.includes('benjamin')) {
         total += 1
     }
 })

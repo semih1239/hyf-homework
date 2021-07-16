@@ -36,7 +36,7 @@ class ShoppingCart {
     searchProduct(productName) {
         let result;
         this.products.forEach((product) => {
-            if (product.name.toLowerCase() === productName.toLowerCase().trim()) {
+            if (product.name.toLowerCase().includes(productName.toLowerCase().trim())) {
                 result = true
             }
         })

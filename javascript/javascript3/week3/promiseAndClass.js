@@ -5,22 +5,22 @@ async function githubRepos(repository) {
     await fetch(fetchLink)
         .then((res) => res.json())
         .then((data) => {
-            const ul = document.querySelector('ul')
+            const repositoryList = document.querySelector('ul')
 
-            const li = document.createElement('li')
-            ul.appendChild(li)
+            const listItem = document.createElement('li')
+            repositoryList.appendChild(listItem)
 
             const h1 = document.createElement('h1')
             h1.innerHTML = `${repository}'s Repositories`
-            li.appendChild(h1)
+            listItem.appendChild(h1)
 
-            const ul2 = document.createElement('ul')
-            li.appendChild(ul2)
+            const allRepos = document.createElement('ul')
+            listItem.appendChild(allRepos)
 
             data.items.forEach(repo => {
-                const li = document.createElement('li')
-                li.innerHTML = `${repo.name} : ${repo.html_url}`
-                ul2.appendChild(li)
+                const repos = document.createElement('li')
+                repos.innerHTML = `${repo.name} : ${repo.html_url}`
+                allRepos.appendChild(repos)
             });
         })
 }

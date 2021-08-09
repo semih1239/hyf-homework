@@ -63,14 +63,6 @@ CREATE TABLE `student` (
   CONSTRAINT `fk_class_id` FOREIGN KEY (`class_id`) REFERENCES `class` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE `class_student` (
-  `class_id` int(10) unsigned NOT NULL,
-  `student_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY(`class_id`, `student_id`),
-  CONSTRAINT `fk_class_id_class` FOREIGN KEY (`class_id`) REFERENCES `class` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_student_id_student` FOREIGN KEY (`student_id`) REFERENCES `student` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 INSERT INTO student (name, email, phone, class_id)
 VALUES ('Semih AYYILDIZ', 'semihayyildiz23@hotmail.com', '11 11 11 11', 18);
 
@@ -104,6 +96,9 @@ VALUES ('finished');
 ALTER TABLE class
 ADD status int(10);
 
+ALTER TABLE class
+ADD CONSTRAINT FOREIGN KEY(status) REFERENCES status_school(id);
+
 UPDATE class
 SET status = 2
 WHERE id = 18;
@@ -115,7 +110,7 @@ SELECT *
 FROM task
 JOIN user_task ON user_task.task_id =  task.id
 JOIN user ON user.id = user_task.user_id
-WHERE email like '%@spotify.com%';
+WHERE user.email like '%@spotify.com%';
 
 -- Get all the tasks for 'Donald Duck' with status 'Not started'
 

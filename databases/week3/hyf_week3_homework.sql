@@ -1,5 +1,4 @@
-SET
-  NAMES utf8mb4;
+SET NAMES utf8mb4;
 
 CREATE TABLE `meal` (
     `id` INT(10) AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -158,8 +157,8 @@ WHERE meal.title LIKE '%yaprak%'
 ORDER BY reservation.created_date ASC;
 
 -- Sort all meals by average number of stars in the reviews
-
-SELECT meal.* , review.stars
+SELECT meal.* , AVG(review.stars) AS Review_stars
 FROM meal
 JOIN review ON review.meal_id = meal.id
-ORDER BY review.stars DESC;
+GROUP BY meal.id
+ORDER BY review_stars DESC;

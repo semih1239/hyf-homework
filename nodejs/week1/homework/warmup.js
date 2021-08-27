@@ -4,14 +4,14 @@ class Circle {
     constructor(radius){
         this.radius = radius
     }
-    getRadius(){
+    getDiameter(){
         return this.radius * 2
     }
     getCircumference(){
-        return 2 * 3,14 * this.radius
+        return 2 * Math.PI * this.radius
     }
     getArea(){
-        return 3,14 * (this.radius ** 2)
+        return Math.PI * (this.radius ** 2)
     }
 }
 
@@ -19,4 +19,4 @@ const cirleOne = new Circle(30)
 
 console.log(cirleOne.getArea())
 console.log(cirleOne.getCircumference())
-console.log(cirleOne.getRadius())
+console.log(cirleOne.getDiameter())

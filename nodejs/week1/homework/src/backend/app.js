@@ -20,7 +20,7 @@ app.get("/cheap-meals", async (request, response) => {
 })
 
 app.get("/large-meals", async (request, response) => {
-  response.send(getMealsWithReviews().filter(meal => meal.price > 90))
+  response.send(getMealsWithReviews().filter(meal => meal.maxNumberOfGuests > 6))
 })
 
 app.get("/meal", async (request, response) => {

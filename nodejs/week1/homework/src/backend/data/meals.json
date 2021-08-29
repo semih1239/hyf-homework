@@ -1,0 +1,26 @@
+[
+    {
+        "id" : 1,
+        "title" : "Indian food in the summer",
+        "maxNumberOfGuests" : 5,
+        "description" : "A nice night out eating delicious indian food",
+        "createdAt" : "2019/12/7 14:34",
+        "price" : 67
+    },
+    {
+        "id" : 2,
+        "title" : "Danish food in the winter",
+        "maxNumberOfGuests" : 5,
+        "description" : "A nice night out eating delicious danish food",
+        "createdAt" : "2021/08/18 00:00",
+        "price" : 130
+    },
+    {
+        "id" : 3,
+        "title" : "Turkish food Lahmancun",
+        "maxNumberOfGuests" : 8,
+        "description" : "A Turkish food with mince on the pita",
+        "createdAt" : "2021/08/18 00:00",
+        "price" : 80
+    }
+]

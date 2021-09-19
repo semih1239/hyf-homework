@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Todos from './App';
+import Todos from './Todo';
 import reportWebVitals from './reportWebVitals';
 import getTodos from './getTodos'
 
@@ -11,7 +11,7 @@ function Render(){
   return (
     <div>
       {todos.map((todo) => {
-        return <Todos description={todo.description} deadline={todo.deadline} />
+        return <Todos key={todo.id} description={todo.description} deadline={todo.deadline} />
       })}
     </div>
   )

@@ -1,7 +1,7 @@
 import React from 'react';
 
-const inputContext = React.createContext()
+const InputContext = React.createContext()
 
-const inputContextProvider = inputContext.Provider
+const InputContextProvider = InputContext.Provider
 
-export {inputContext, inputContextProvider}
+export {InputContext, InputContextProvider}

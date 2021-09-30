@@ -1,50 +1,51 @@
 import React from 'react'
-import { inputContext, inputContextProvider } from './inputContext'
-
+import { InputContextProvider } from './inputContext'
+import UserNames from './userName'
 
 const UserInput = () => {
-    const [searchedWord, changeSearchedWord] = React.useState('semih12')
-    const [userDatas, changeUserDatas] = React.useState('')
+    const [searchedWord, changeSearchedWord] = React.useState('')
+    const [userDatas, changeUserDatas] = React.useState([])
+    const [loading, changeLoading] = React.useState(false)
 
-    const contextValue = React.useContext(inputContext)
+    React.useEffect(() => {
+        const getResults = async () => {
+            if (searchedWord === '') {
+                changeUserDatas(['No Result'])
+            }
+            else {
+                changeLoading(true)
+                await fetch(`https://api.github.com/search/users?q=${searchedWord}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.items) {
+                            changeUserDatas(data.items)
+                            if (data.items.length === 0) {
+                                changeUserDatas(['No Result'])
+                            }
+                        }
+                        else if (data.message) {
+                            changeUserDatas([data.message])
+                        }
+                        changeLoading(false)
 
-    // const  fetchResults = async () => {
-    function fetchResults() {
-        fetch(`https://api.github.com/search/users?q=${searchedWord}`)
-            .then(res => res.json())
-            .then(data => {
-                if (data.items) {
-                    changeUserDatas(data.items.map(data => data.login))
-                }
-            })
-    }
-
-    console.log(userDatas)
-    // changeUserDatas(userDatas.concat(data.login))
+                    })
+            }
+        }
+        getResults()
+    }, [searchedWord])
 
     const githubResults = {
-        searchWord: searchedWord
-
+        searchedWord: searchedWord,
+        userDatas: userDatas,
+        loading: loading
     }
 
-    const inputValue = (e) => {
-        changeSearchedWord(e.target.value)
-        // console.log(searchedWord)
-        fetchResults()
-    }
-
-    // console.log(userDatas)
-
-    return <div>
-        <inputContextProvider value={githubResults}>
-            <div>
-                <h1>Github User Searcher</h1>
-            </div>
-            <div>
-                <input type='text' placeholder='Search for user' onKeyUp={inputValue} />
-            </div>
-            <div></div>
-        </ inputContextProvider>
+    return <div className={'main'}>
+        <InputContextProvider value={githubResults}>
+            <h1>Github User Searcher</h1>
+            <input type='text' placeholder='Search for user' onChange={(e) => changeSearchedWord(e.target.value)} />
+            <UserNames />
+        </ InputContextProvider>
     </div>
 }
 

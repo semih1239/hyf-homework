@@ -1,6 +1,8 @@
 import React from 'react'
 import { InputContextProvider } from './inputContext'
 import UserNames from './userName'
+import GetInput from './GetInput'
+import Loading from './loading'
 
 const UserInput = () => {
     const [searchedWord, changeSearchedWord] = React.useState('')
@@ -37,16 +39,18 @@ const UserInput = () => {
     const githubResults = {
         searchedWord: searchedWord,
         userDatas: userDatas,
-        loading: loading
+        loading: loading,
+        changeSearchedWord: changeSearchedWord
     }
 
-    return <div className={'main'}>
-        <InputContextProvider value={githubResults}>
+    return <InputContextProvider value={githubResults}>
+        <div className={'main'}>
             <h1>Github User Searcher</h1>
-            <input type='text' placeholder='Search for user' onChange={(e) => changeSearchedWord(e.target.value)} />
+            <GetInput />
+            <Loading />
             <UserNames />
-        </ InputContextProvider>
-    </div>
+        </div>
+    </ InputContextProvider>
 }
 
 export default UserInput

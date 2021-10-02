@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 const Todos = (props) => {
     const [shouldLineThrought, changeLine] = React.useState(true)
@@ -17,6 +18,11 @@ const Todos = (props) => {
             {editButton}
         </li>
     </div>
+}
+
+Todos.PropTypes = {
+    description: PropTypes.string,
+    deadline : PropTypes.instanceOf(Date)
 }
 
 export default Todos

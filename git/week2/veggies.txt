@@ -1,0 +1,5 @@
+pepper
+onion
+mushrooms
+pumpkin
+potato

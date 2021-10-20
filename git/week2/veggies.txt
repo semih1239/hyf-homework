@@ -1,5 +1,7 @@
 pepper
 onion
-mushrooms
+cucumber
 pumpkin
 potato
+lettuce
+carrot

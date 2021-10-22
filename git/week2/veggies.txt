@@ -5,3 +5,4 @@ pumpkin
 potato
 lettuce
 carrot
+Chili pepper

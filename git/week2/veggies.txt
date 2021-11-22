@@ -1,5 +1,8 @@
 pepper
 onion
-Chili pepper
+cucumber
 pumpkin
 potato
+lettuce
+carrot
+Chili pepper
